@@ -1,10 +1,10 @@
-## MiniProject: FakeFaceGen
+# MiniProject: FakeFaceGen
 
 > Acknowledgement: This project is inspired by the [DCGANfakeface](https://github.com/Siyou-Li/DCGANfakeface).
 
 ~~Since everyone here speaks Chinese, let's introduce in Chinese.~~
 
-### Background
+## Background
 
 我们推测大家对机器学习应该会比较好奇。
 
