@@ -1,0 +1,87 @@
+## MiniProject: FakeFaceGen
+
+> Acknowledgement: This project is inspired by the [DCGANfakeface](https://github.com/Siyou-Li/DCGANfakeface).
+
+~~Since everyone here speaks Chinese, let's introduce in Chinese.~~
+
+### Background
+
+我们推测大家对机器学习应该会比较好奇。
+
+因此给大家出一个小项目来让大家知道机器学习的项目一般长什么样（**祛魅**）。
+
+当然，这仅仅是最基础的入门。以及，祛魅本身是中性的。
+
+## Goal
+
+### General Goal
+
+我们需要你实现一个DCGAN（深度生成对抗网络）。
+
+关于DCGAN能生效的原因，我们在此并不进行详细讲解，如果有需要，可以在网上学习相关内容。
+
+此处我们给出原论文 [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661)
+
+在本项目中，你只需要完成 **network** 的建立，所以实际上你只用了解网络的结构即可。
+
+### What and How
+
+我们希望你对 `network.py` 中的 `Generator` 和 `Discriminator` 进行实现。
+
+具体而言，你需要实现他们的 `__init__` 和 `forward`（以及可能存在的一些辅助函数）。
+
+#### Generator's structure
+
+![gen](https://www.paddlepaddle.org.cn/documentation/docs/zh/_images/models.png)
+
+你可能要用到 `nn.ConvTranspose2d` 和 `nn.BatchNorm2d`。
+
+#### Discriminator's structure
+
+![dis](https://i-blog.csdnimg.cn/blog_migrate/60ff6330d1f200ee3bdfa76f5e6a4ea0.png#pic_center)
+
+你可能要用到 `nn.Conv2d` 和 `nn.BatchNorm2d`。
+
+#### Some hints when facing problems
+
+认真读读报错信息，用 pdb 或者 print 语句输出每一层的形状，从而找到错误的位置。
+
+## Dataset
+
+我们使用 [Celeb-A Faces](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) 数据集，在我们给出的链接中，有通过 Google 链接的下载方式。
+
+当然如果你想通过国内的网站下载，我们也给出如下链接：[下载链接](https://aistudio.baidu.com/datasetdetail/39207)。
+
+**请留出时间下载数据集（8G）**，不然你可能会来不及完成项目。imga
+
+我们希望数据集（文件夹）放在 "img/" 目录下。
+
+## Score
+
+具体构成如下：
+
+- 代码实现和结果展示 70%
+
+- 解释文档 20%
+  
+  - 解释实现过程
+  - 解释 `train.py` 的大致思想
+
+- 额外实现 10%
+
+  - 额外实现的内容可以是任何你想做的事情，比如说：
+
+    - 提供用于评判生成质量的指标
+    - 实现一个更好的网络结构（数据或者理论支撑）
+    - 更高的分辨率（见 `preprocess.py`，值得注意的是，你的网络也会因此变化）
+    - 其他（请提前和助教联系，不然不一定保证得分）
+
+## Environment
+
+- scikit-image
+- numpy
+- matplotlib
+- torch
+- torchvision
+
+配环境是不得不品鉴的一环，大家加油！（记得配带gpu的版本，如果有gpu的话）
