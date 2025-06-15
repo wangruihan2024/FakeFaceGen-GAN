@@ -42,6 +42,8 @@
 
 你可能要用到 `nn.Conv2d` 和 `nn.BatchNorm2d`。
 
+关于这些函数最简单的使用方式，可以参考我们给出的[文档](/docs/nn-func.ipynb)。
+
 #### Some hints when facing problems
 
 认真读读报错信息，用 pdb 或者 print 语句输出每一层的形状，从而找到错误的位置。
@@ -52,7 +54,7 @@
 
 当然如果你想通过国内的网站下载，我们也给出如下链接：[下载链接](https://aistudio.baidu.com/datasetdetail/39207)。
 
-**请留出时间下载数据集（8G）**，不然你可能会来不及完成项目。imga
+**请留出时间下载数据集（8G）**，不然你可能会来不及完成项目。
 
 我们希望数据集（文件夹）放在 "img/" 目录下。
 

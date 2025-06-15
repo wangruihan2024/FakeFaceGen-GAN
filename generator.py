@@ -1,5 +1,7 @@
 import torch
 import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image
 from network import Generator
 import os
 
@@ -25,11 +27,8 @@ os.makedirs('Generate', exist_ok=True)  # 创建目录以保存生成的图像
 # 保存生成的图像
 for j in range(100):
     image = generated_image[j].transpose(1, 2, 0)  # 转换为 HWC 格式
-    plt.figure(figsize=(4, 4))
-    plt.imshow((image + 1) / 2)  # 将 [-1, 1] 范围的图像转换为 [0, 1]
-    plt.axis('off')
-    plt.xticks([])
-    plt.yticks([])
-    plt.subplots_adjust(wspace=0.1, hspace=0.1)
-    plt.savefig(f'Generate/generated_{j + 1}.png', bbox_inches='tight')
-    plt.close()
+    image = ((image + 1) / 2 * 255).astype(np.uint8)
+    pil_image = Image.fromarray(image)
+    pil_image.save(f'Generate/generated_{j + 1}.png')
+
+print("Images saved using Pillow (PIL)")

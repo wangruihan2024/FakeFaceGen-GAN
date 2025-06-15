@@ -13,7 +13,7 @@ from dataloader import *  # 假设您已经定义了 train_loader
 # 超参数
 img_dim = 64
 lr = 0.0002
-epochs = 20
+epochs = 5
 batch_size = 128
 G_DIMENSION = 100
 beta1 = 0.5
