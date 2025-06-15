@@ -20,7 +20,10 @@
 
 关于DCGAN能生效的原因，我们在此并不进行详细讲解，如果有需要，可以在网上学习相关内容。
 
-此处我们给出原论文 [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661)
+此处我们给出原论文：
+
+* [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661)
+* [Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/pdf/1406.2661)
 
 在本项目中，你只需要完成 **network** 的建立，所以实际上你只用了解网络的结构即可。
 
@@ -36,6 +39,8 @@
 
 你可能要用到 `nn.ConvTranspose2d` 和 `nn.BatchNorm2d`。
 
+论文中给出的卷积核大小为 `5*5`。
+
 #### Discriminator's structure
 
 ![dis](https://i-blog.csdnimg.cn/blog_migrate/60ff6330d1f200ee3bdfa76f5e6a4ea0.png#pic_center)
@@ -43,6 +48,8 @@
 你可能要用到 `nn.Conv2d` 和 `nn.BatchNorm2d`。
 
 关于这些函数最简单的使用方式，可以参考我们给出的[文档](/docs/nn-func.ipynb)。
+
+论文中给出的卷积核大小为 `5*5`。
 
 #### Some hints when facing problems
 
