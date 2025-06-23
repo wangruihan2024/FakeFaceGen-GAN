@@ -49,6 +49,8 @@
 
 关于这些函数最简单的使用方式，可以参考我们给出的[文档](/docs/nn-func.ipynb)。
 
+更具体的知识可以看[这篇文章](https://hml.boyuai.com/books/chapter9/)。
+
 论文中给出的卷积核大小为 `5*5`。
 
 #### Forward
@@ -159,6 +161,12 @@ stabilize training.
 - numpy
 - matplotlib
 - torch
-- torchvision
+- 其他
 
 配环境是不得不品鉴的一环，大家加油！（记得配带gpu的版本，如果有gpu的话）
+
+## Submission
+
+请于 2025.7.6（周日）23:59 之前提交。（暂定）
+
+请提交一份 `report.pdf` 以及对应的 `.md` 文件（如果可以的话）
