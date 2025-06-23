@@ -23,7 +23,7 @@
 此处我们给出原论文：
 
 * [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661)
-* [Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/pdf/1406.2661)
+* [Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/abs/1511.06434)
 
 在本项目中，你只需要完成 **network** 的建立，所以实际上你只用了解网络的结构即可。
 
@@ -51,9 +51,49 @@
 
 论文中给出的卷积核大小为 `5*5`。
 
+#### Forward
+
+我们这里引用论文的原话：
+
+- Replace any pooling layers with strided convolutions (discriminator) and fractional-strided convolutions (generator).（这条对应的是 structure 中的内容）
+- Use batchnorm in both the generator and the discriminator.（这条提示你在何处用 `nn.BatchNorm2d`）
+- Remove fully connected hidden layers for deeper architectures.（这条提示你不需要使用全连接层）
+- Use ReLU activation in generator for all layers except for the output, which uses Tanh.（这条提示你 `forward` 怎么写）
+- Use LeakyReLU activation in the discriminator for all layers.（这条提示你 `Discriminator` 的 `forward` 额外需要修改什么）
+
+#### Details about hyperparameters
+
+我们直接引用原文：
+
+No pre-processing was applied to training images besides scaling to the range of the tanh activation
+function $[-1, 1]$.
+
+All models were trained with mini-batch stochastic gradient descent (SGD) with
+a mini-batch size of $128$.
+
+All weights were initialized from a zero-centered Normal distribution
+with standard deviation $0.02$.
+
+In the LeakyReLU, the slope of the leak was set to $0.2$ in all models.
+
+While previous GAN work has used momentum to accelerate training, we used the Adam optimizer
+(Kingma & Ba, 2014) with tuned hyperparameters.
+
+We found the suggested learning rate of $0.001$,
+to be too high, using $0.0002$ instead.
+
+Additionally, we found leaving the momentum term $\beta_1$ at the suggested value of $0.9$ resulted in training oscillation and instability while reducing it to $0.5$ helped
+stabilize training.
+
+部分超参数的设置已经帮大家写好了，但是关于 network 的超参数需要大家自己设置。
+
+关于 `BatchNorm2d` 的 `momentum` 原文没有提及，大家可以自行设置（或者default）。
+
 #### Some hints when facing problems
 
 认真读读报错信息，用 pdb 或者 print 语句输出每一层的形状，从而找到错误的位置。
+
+关于为什么我们的损失函数（`criterion`）选择的是 `nn.BCELoss`，可以参考 [这里](https://www.zhihu.com/question/522955753)。
 
 ## Dataset
 
