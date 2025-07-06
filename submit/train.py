@@ -12,21 +12,25 @@ from tqdm import tqdm
 import multiprocessing
 
 
-img_dim = 64
-lr = 0.0002
-epochs = 5
+img_dim = 128  # 图像尺寸
+lr = 0.0001
+epochs = 15
 batch_size = 128
 G_DIMENSION = 100
 beta1 = 0.5
 beta2 = 0.999
 output_path = 'output'
-real_label = 1
-fake_label = 0
+real_label = 0.9
+fake_label = 0.1
 
 # 设置设备
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def main(): 
+    # 确保输出目录存在
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
+    # ...existing code...
 
     # 定义模型
     netD = Discriminator().to(device)
@@ -35,7 +39,7 @@ def main():
     # 定义损失函数和优化器
     criterion = nn.BCELoss()
     optimizerD = optim.Adam(netD.parameters(), lr=lr, betas=(beta1, beta2))
-    optimizerG = optim.Adam(netG.parameters(), lr=lr, betas=(beta1, beta2))
+    optimizerG = optim.Adam(netG.parameters(), lr=lr*2, betas=(beta1, beta2))
 
     # 训练过程
     losses = [[], []]
